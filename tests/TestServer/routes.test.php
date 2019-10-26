@@ -1,8 +1,9 @@
 <?php
 
-require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '\..\..\vendor\autoload.php';
 
 use StaticRouter\StaticRouter;
+use StaticRouter\RequestResolver;
 
 function routes()
 {
@@ -21,4 +22,6 @@ function routes()
     StaticRouter::get('/', function() {
         return "Hello World";
     });
+
+    RequestResolver::wrapUp();
 }
