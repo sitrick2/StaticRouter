@@ -1,6 +1,6 @@
 <?php
 
-namespace StaticRouter\Tests\Feature;
+namespace StaticRouter\Tests\Feature\PatientsController;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;

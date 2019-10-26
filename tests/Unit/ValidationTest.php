@@ -35,7 +35,8 @@ class ValidationTest extends TestCase {
         $this->assertFalse(Validation::routeMatchesURI('test/{id}/metrics/{id}', '/test/1/topics/2'));
         $this->assertFalse(Validation::routeMatchesURI('test/metrics', '/test/1'));
         $this->assertEquals(Validation::routeMatchesURI('test/metrics', '/test/metrics'), ['test.metrics' => '']);
-        $this->assertEquals(Validation::routeMatchesURI('/patients/{id}/metrics/{uuid}', '/patients/2/metrics/abc'), ['patients' => '2', 'metrics.abc' => '']);
+        $this->assertEquals(Validation::routeMatchesURI('/patients/{id}/metrics/{uuid}', '/patients/2/metrics/abc'), ['patients' => '2', 'metrics' => 'abc']);
+        $this->assertEquals(Validation::routeMatchesURI('/patients/metrics/test', '/patients/metrics/test'), ['patients.metrics.test' => '']);
     }
 
     public function testRequestTypeMatchesRESTFunction() :void

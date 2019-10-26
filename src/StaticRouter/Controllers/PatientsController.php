@@ -3,7 +3,6 @@
 namespace StaticRouter\Controllers;
 
 use StaticRouter\IRequest;
-use function MongoDB\BSON\toJSON;
 
 class PatientsController
 {

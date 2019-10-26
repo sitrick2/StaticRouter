@@ -12,12 +12,11 @@ function routes()
     StaticRouter::patch('/patients/{patient_id}', '\StaticRouter\Controllers\PatientsController@update');
     StaticRouter::delete('/patients/{patient_id}', '\StaticRouter\Controllers\PatientsController@delete');
 
-    StaticRouter::get('/patients/2/metrics', '\StaticRouter\Controllers\PatientsMetricsController@index');
-    StaticRouter::get('/patients/{patient_id}', '\StaticRouter\Controllers\PatientsMetricsController@get');
-    StaticRouter::post('/patients', '\StaticRouter\Controllers\PatientsMetricsController@create');
-    StaticRouter::patch('/patients', '\StaticRouter\Controllers\PatientsMetricsController@update');
-    StaticRouter::delete('/patients', '\StaticRouter\Controllers\PatientsMetricsController@delete');
-
+    StaticRouter::get('/patients/{patient_id}/metrics', '\StaticRouter\Controllers\PatientsMetricsController@index');
+    StaticRouter::get('/patients/{patient_id}/metrics/{metric_id}', '\StaticRouter\Controllers\PatientsMetricsController@get');
+    StaticRouter::post('/patients/{patient_id}/metrics', '\StaticRouter\Controllers\PatientsMetricsController@create');
+    StaticRouter::patch('/patients/{patient_id}/metrics/{metric_id}', '\StaticRouter\Controllers\PatientsMetricsController@update');
+    StaticRouter::delete('/patients/{patient_id}/metrics/{metric_id}', '\StaticRouter\Controllers\PatientsMetricsController@delete');
 
 
     if (!isset($_SESSION['200'])) {

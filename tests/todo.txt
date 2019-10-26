@@ -4,7 +4,7 @@ Requirements:
 x Enable basic routing (gets and posts)
 x Enable calling basic routes statically (gets and posts)
 x set up router to expect string containing 'ControllerName@function'
-- parse nested routes ('patients/2', 'patients/2/metrics')
+x parse nested routes ('patients/2', 'patients/2/metrics')
 x enable PATCH and DELETE
 x store routes in a routes.php file
 x handle not found routes and return 404
