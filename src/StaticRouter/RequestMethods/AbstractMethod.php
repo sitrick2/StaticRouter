@@ -68,11 +68,11 @@ abstract class AbstractMethod
     {
 
         foreach ($this->keys as $key => $value){
-            if ($value !== ''){
-                return false;
+            if ($value === ''){
+                return true;
             }
         }
 
-        return true;
+        return false;
     }
 }

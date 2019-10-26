@@ -18,15 +18,15 @@ class PatientsMetricsController
 
     public function create(IRequest $request, $patient_id)
     {
-        return json_encode(['patient_id' => $patient_id, 'request_body' => $request->getBody()]);
+        return json_encode(['patient_id' => $patient_id, 'body' => $request->getBody()]);
     }
 
     public function update(IRequest $request, $patient_id, $metrics_id)
     {
         return json_encode([
+            'body' => $request->getBody(),
             'patient_id' => $patient_id,
-            'metrics_id' => $metrics_id,
-            'request_body' => $request->getBody()
+            'metrics_id' => $metrics_id
         ]);
     }
 

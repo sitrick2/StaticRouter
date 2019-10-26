@@ -1,6 +1,6 @@
 <?php
 
-namespace StaticRouter\Tests\Feature\PatientsController;
+namespace StaticRouter\Tests\Feature\PatientsMetricsController;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
@@ -19,9 +19,9 @@ class DeleteTest extends TestCase {
     public function testPatientDelete(): void
     {
         try {
-            $res = $this->client->request('DELETE', 'http://localhost:8000/patients/1');
+            $res = $this->client->request('DELETE', 'http://localhost:8000/patients/1/metrics/abc');
             $this->assertEquals($res->getStatusCode(), '200');
-            $this->assertEquals('1', $res->getBody()->getContents());
+            $this->assertEquals(['patient_id' => '1', 'metrics_id' => 'abc'], json_decode($res->getBody()->getContents(), true));
         } catch (GuzzleException $e) {
             $this->fail('GuzzleException: ' . $e->getMessage());
         }
@@ -30,8 +30,8 @@ class DeleteTest extends TestCase {
     public function testDeletePatientsWrongURL(): void
     {
         try {
-            $res = $this->client->request('DELETE', 'http://localhost:8000/patients');
-            $this->assertEquals($res->getStatusCode(), '404');
+            $res = $this->client->request('DELETE', 'http://localhost:8000/patients/1/metrics');
+            $this->assertEquals('404', $res->getStatusCode());
         } catch (GuzzleException $e) {
             $this->assertEquals(400, $e->getCode());
         }
