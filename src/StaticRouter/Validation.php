@@ -39,7 +39,8 @@ class Validation
         $uriArr = static::parseUriKeys($requestUri);
 
         //try and find perfect matches
-        if ($matched = static::matchCheck($routeArr, $uriArr)){
+        $matched = static::matchCheck($routeArr, $uriArr);
+        if ($matched !== false){
             return $matched;
         }
 
@@ -259,5 +260,4 @@ class Validation
 
         return [$routeArr, $uriArr];
     }
-
 }

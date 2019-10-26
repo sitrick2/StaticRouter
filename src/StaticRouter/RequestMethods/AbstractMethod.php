@@ -51,7 +51,8 @@ abstract class AbstractMethod
      */
     protected function handleRequestErrors($route, $method)
     {
-        if ($method === null || !$keys = Validation::routeMatchesURI($route, $_SERVER['REQUEST_URI'])){
+        $keys = Validation::routeMatchesURI($route, $_SERVER['REQUEST_URI']);
+        if ($method === null || $keys === false){
             return $this->requestHandler->handleDefault();
         }
 

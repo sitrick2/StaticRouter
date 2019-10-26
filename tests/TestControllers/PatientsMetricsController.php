@@ -1,6 +1,6 @@
 <?php
 
-namespace StaticRouter\Controllers;
+namespace TestControllers;
 
 use StaticRouter\IRequest;
 

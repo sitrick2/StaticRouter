@@ -39,4 +39,15 @@ class GetTest extends TestCase {
             $this->fail('GuzzleException: ' . $e->getMessage());
         }
     }
+
+    public function testEmptyUrl() :void
+    {
+        try {
+            $res = $this->client->request('GET', 'http://localhost:8000/');
+            $this->assertEquals($res->getStatusCode(), '200');
+            $this->assertEquals('Hello World', $res->getBody()->getContents());
+        } catch (GuzzleException $e) {
+            $this->fail('GuzzleException: ' . $e->getMessage());
+        }
+    }
 }

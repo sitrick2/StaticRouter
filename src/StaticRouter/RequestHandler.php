@@ -2,9 +2,6 @@
 
 namespace StaticRouter;
 
-
-use InvalidControllerReferenceException;
-
 class RequestHandler
 {
 
