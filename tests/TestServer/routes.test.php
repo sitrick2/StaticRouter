@@ -23,5 +23,9 @@ function routes()
         return "Hello World";
     });
 
+    StaticRouter::get('/test/{test_id}', function() {
+        return 'found the end';
+    });
+
     RequestResolver::wrapUp();
 }

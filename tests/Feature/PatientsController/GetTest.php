@@ -33,7 +33,7 @@ class GetTest extends TestCase {
     {
         try {
             $res = $this->client->request('GET', 'http://localhost:8000/patients/1');
-            $this->assertEquals($res->getStatusCode(), '200');
+            $this->assertEquals('200', $res->getStatusCode());
             $this->assertEquals('1', $res->getBody()->getContents());
         } catch (GuzzleException $e) {
             $this->fail('GuzzleException: ' . $e->getMessage());
@@ -44,10 +44,9 @@ class GetTest extends TestCase {
     {
         try {
             $res = $this->client->request('GET', 'http://localhost:8000/');
-            $this->assertEquals($res->getStatusCode(), '200');
-            $this->assertEquals('Hello World', $res->getBody()->getContents());
+            $this->assertEquals(404, $res->getStatusCode());
         } catch (GuzzleException $e) {
-            $this->fail('GuzzleException: ' . $e->getMessage());
+            $this->assertEquals(404, $e->getCode());
         }
     }
 }

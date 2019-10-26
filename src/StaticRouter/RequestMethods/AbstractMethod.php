@@ -29,10 +29,6 @@ abstract class AbstractMethod
      */
     protected function executeMethod($method)
     {
-        if ($method instanceof \Closure){
-            return $method($this->request);
-        }
-
         $methodArr = explode('@', $method);
         [$controller, $controllerMethod] = $methodArr;
 
@@ -51,6 +47,10 @@ abstract class AbstractMethod
      */
     protected function handleRequestErrors($route, $method)
     {
+        if ($method instanceof \Closure){
+            return $this->requestHandler->handleDefault();
+        }
+
         $keys = Validation::routeMatchesURI($route, $_SERVER['REQUEST_URI']);
         if ($method === null || $keys === false){
             return $this->requestHandler->handleDefault();

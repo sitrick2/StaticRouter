@@ -1,16 +1,18 @@
 {
-    "name": "sitri/hrs_router",
-    "license": "",
+    "name": "sitrick2/static_router",
+    "type": "library",
+    "description": "A simple raw PHP router.",
+    "license": "MIT",
     "authors": [
         {
             "name": "David Sitrick",
-            "email": "sitrick2@gmail.com"
+            "email": "sitrick2@gmail.com",
+            "role": "Developer"
         }
     ],
     "require": {
-        "php": ">=7.1",
-        "ext-json": "*",
-        "php-di/php-di": "^6.0"
+        "php": ">=7.2",
+        "ext-json": "*"
     },
     "require-dev": {
         "roave/security-advisories": "dev-master"
