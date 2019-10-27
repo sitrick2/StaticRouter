@@ -2,9 +2,6 @@
 
 namespace StaticRouter\RequestMethods;
 
-use DI\Container;
-use InvalidControllerReferenceException;
-use StaticRouter\Controllers\PatientsController;
 use StaticRouter\IRequest;
 use StaticRouter\RequestHandler;
 use StaticRouter\Validation;

@@ -75,3 +75,5 @@ tests/TestServer folder and run the following in a terminal:
 php -S 127.0.0.1:8000
 ```
 (Note: The test requests connect to "localhost:8000", so this could potentially be different if your localhost value is not default.)
+
+Once the server is active, you may run the project's local PHPUnit instance by executing the command ```vendor/bin/phpunit tests``` in the package's root directory.
