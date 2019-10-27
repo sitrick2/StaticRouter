@@ -19,7 +19,28 @@ abstract class AbstractMethod
         $this->keys = [];
     }
 
+    protected function abstractHandler($route, $method, $restMethod)
+    {
+        if (!Validation::requestTypeMatchesRESTFunction($restMethod, $_SERVER['REQUEST_METHOD'])){
+            return $this->requestHandler->handleInvalid();
+        }
+
+        if (!$this->handleRequestErrors($route, $method)){
+            return false;
+        }
+
+        if (in_array($restMethod, ['patch', 'delete']) && $this->keysAreEmpty()) {
+            return $this->requestHandler->handleBadContentType();
+        }
+
+
+        $_SESSION['200'] = $this->executeMethod($method);
+        return $_SESSION['200'];
+    }
+
     /**
+     * Execute the controller method specified by the route declaration.
+     *
      * @param $method
      *
      * @return mixed
@@ -37,6 +58,8 @@ abstract class AbstractMethod
     }
 
     /**
+     * Handle validation of the route declaration and catch errors to be dealt with by the requestHandler.
+     *
      * @param $method
      * @param $route
      *
@@ -62,6 +85,11 @@ abstract class AbstractMethod
         return true;
     }
 
+    /**
+     * Check to see if dynamic values are present in the route string.
+     *
+     * @return bool
+     */
     protected function keysAreEmpty():bool
     {
 
