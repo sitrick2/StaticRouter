@@ -13,7 +13,7 @@ class RequestResolver
                 echo $_SESSION['400'];
                 try {
                     exit;
-                } catch (Exception $e) {
+                } catch (\Exception $e) {
                     exit;
                 }
 
@@ -24,7 +24,7 @@ class RequestResolver
                 echo $_SESSION['404'];
                 try {
                     exit;
-                } catch (Exception $e) {
+                } catch (\Exception $e) {
                     exit;
                 }
             }
@@ -34,7 +34,7 @@ class RequestResolver
                 header($_SESSION['405']);
                 try {
                     exit;
-                } catch (Exception $e) {
+                } catch (\Exception $e) {
                     exit;
                 }
 
