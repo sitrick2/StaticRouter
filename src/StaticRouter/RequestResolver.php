@@ -4,7 +4,7 @@ namespace StaticRouter;
 
 class RequestResolver
 {
-    public static function wrapUp()
+    public static function wrapUp(): void
     {
         if (!isset($_SESSION['200'])) {
 
