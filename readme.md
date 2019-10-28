@@ -41,12 +41,12 @@ StaticRouter::post('/patients', '\Namespace\Path\PatientsController@create');
 
 ###### PATCH
 ```
-StaticRouter::get('/patients/{patient_id}', '\Namespace\Path\PatientsController@update');
+StaticRouter::patch('/patients/{patient_id}', '\Namespace\Path\PatientsController@update');
 ```
 
 ###### DELETE
 ```
-StaticRouter::get('/patients/{patient_id}', '\Namespace\Path\PatientsController@delete');
+StaticRouter::delete('/patients/{patient_id}', '\Namespace\Path\PatientsController@delete');
 ```
 Where '{patient_id}' represents the $patient_id the PatientsController function will receive.
 
